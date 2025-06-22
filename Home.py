@@ -11,23 +11,25 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Enhanced CSS with gradient backgrounds
+# Enhanced CSS with optimized gradients and text contrast
 st.markdown("""
 <style>
     /* Main Page Gradient */
     [data-testid="stAppViewContainer"] {
-        background: linear-gradient(145deg, #e6f0ff 0%, #f8f9fa 100%);
+        background: linear-gradient(145deg, #e0ebff 0%, #f5f9ff 100%);
+        color: #2c3e50;
     }
 
     /* Sidebar Gradient */
     [data-testid="stSidebar"] {
-        background: linear-gradient(160deg, #e9ecef 0%, #d1e0ff 100%) !important;
+        background: linear-gradient(160deg, #dde5f0 0%, #e9f0ff 100%) !important;
         border-right: 1px solid #ced4da;
+        color: #2c3e50 !important;
     }
 
     /* Sidebar Header */
     [data-testid="stSidebar"] .sidebar-header {
-        color: #212529;
+        color: #1a3d7c !important;
         font-size: 1.25rem;
         font-weight: 600;
         padding: 1rem;
@@ -48,6 +50,13 @@ st.markdown("""
         border: 1px solid #ced4da;
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         transition: all 0.2s ease;
+        color: #2c3e50 !important;
+    }
+
+    /* Widget Labels */
+    [data-testid="stSidebar"] label {
+        color: #1a3d7c !important;
+        font-weight: 600;
     }
 
     /* Widget Hover Effects */
@@ -68,6 +77,12 @@ st.markdown("""
         box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         border: 1px solid #e9ecef;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: #2c3e50;
+    }
+
+    .metric-card h3 {
+        color: #1a3d7c !important;
+        margin-top: 0;
     }
 
     .metric-card:hover {
@@ -76,10 +91,29 @@ st.markdown("""
         border-color: #dee2e6;
     }
 
+    /* Main Content Styling */
+    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+        color: #1a3d7c !important;
+    }
+
+    /* Header Container */
+    .header-container {
+        background: linear-gradient(145deg, #e0ebff 0%, #d0e0ff 100%);
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #c6d4f5;
+    }
+
+    /* Footer Styling */
+    .footer {
+        color: #4a6580 !important;
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 768px) {
         [data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #e9ecef 0%, #d1e0ff 100%) !important;
+            background: linear-gradient(180deg, #dde5f0 0%, #e9f0ff 100%) !important;
         }
         
         .metric-card {
@@ -97,7 +131,7 @@ st.markdown("""
     }
     
     [data-testid="stSidebar"]::-webkit-scrollbar-thumb {
-        background: #adb5bd;
+        background: #a1b4d0;
         border-radius: 3px;
     }
 </style>
@@ -106,9 +140,9 @@ st.markdown("""
 # Main Content
 st.title("🦠 COVID-19 Testing Analytics Dashboard")
 st.markdown("""
-<div style="background:#f0f2f6;padding:20px;border-radius:10px;margin-bottom:20px;">
-    <h3 style="color:#2c3e50;">Advanced Analytics for India's Pandemic Response</h3>
-    <p style="color:#7f8c8d;">Visualize testing trends, compare states, and export clean datasets.</p>
+<div class="header-container">
+    <h3 style="color:#1a3d7c !important;">Advanced Analytics for India's Pandemic Response</h3>
+    <p style="color:#4a6580;">Visualize testing trends, compare states, and export clean datasets.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -147,7 +181,7 @@ for idx, feature in enumerate(features):
 # Footer
 st.markdown("---")
 st.markdown("""
-<small>
+<small class="footer">
     Built with ♥ using Streamlit | Data Source: Ministry of Health & Family Welfare, India
 </small>
 """, unsafe_allow_html=True)
