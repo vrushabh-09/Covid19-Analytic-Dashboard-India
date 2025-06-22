@@ -11,15 +11,15 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Enhanced CSS with consistent text colors
+# Dark theme CSS with gradient backgrounds
 st.markdown("""
 <style>
-    /* ===== GLOBAL TEXT COLORS ===== */
+    /* ===== DARK THEME COLORS ===== */
     /* Base text color for all elements */
     body, .stApp, [data-testid="stAppViewContainer"], 
     [data-testid="stSidebar"], .stMarkdown, .stMarkdown p,
     .stMarkdown div, .stMarkdown span, .st-emotion-cache-10trblm {
-        color: #2c3e50 !important;
+        color: #e0e7ff !important;
     }
     
     /* Headings color */
@@ -28,7 +28,7 @@ st.markdown("""
     .stMarkdown h4, .stMarkdown h5, .stMarkdown h6,
     .metric-card h3, .header-container h3,
     .st-emotion-cache-10trblm, .st-emotion-cache-16idsys {
-        color: #1a3d7c !important;
+        color: #ffffff !important;
     }
     
     /* Secondary text color */
@@ -36,19 +36,19 @@ st.markdown("""
     .footer, .stHelp, .stDateInput, .stSelectbox,
     .stRadio, .stMultiselect, .stMetricLabel,
     .st-emotion-cache-p5msec, .st-emotion-cache-q8sbsg {
-        color: #4a6580 !important;
+        color: #a3b3cc !important;
     }
 
     /* ===== SPECIFIC ELEMENT STYLES ===== */
-    /* Main Page Gradient */
+    /* Main Page Gradient - Dark Blue/Purple */
     [data-testid="stAppViewContainer"] {
-        background: linear-gradient(145deg, #e0ebff 0%, #f5f9ff 100%);
+        background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
     }
 
-    /* Sidebar Gradient */
+    /* Sidebar Gradient - Dark Blue */
     [data-testid="stSidebar"] {
-        background: linear-gradient(160deg, #dde5f0 0%, #e9f0ff 100%) !important;
-        border-right: 1px solid #ced4da;
+        background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%) !important;
+        border-right: 1px solid #2a3a5a;
     }
 
     /* Sidebar Navigation */
@@ -57,7 +57,7 @@ st.markdown("""
     }
     
     [data-testid="stSidebarNav"] a {
-        color: #1a3d7c !important;
+        color: #e0e7ff !important;
         font-weight: 600;
         padding: 0.5rem 0;
         display: block;
@@ -66,8 +66,9 @@ st.markdown("""
     }
     
     [data-testid="stSidebarNav"] a:hover {
-        color: #0d2b5e !important;
+        color: #ffffff !important;
         transform: translateX(3px);
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
     }
 
     /* Widget Containers */
@@ -75,18 +76,18 @@ st.markdown("""
     [data-testid="stSidebar"] .stMultiselect,
     [data-testid="stSidebar"] .stRadio,
     [data-testid="stSidebar"] .stDateInput {
-        background-color: rgba(255,255,255,0.9);
+        background-color: rgba(26, 32, 58, 0.8);
         border-radius: 10px;
         padding: 12px;
         margin-bottom: 1.25rem;
-        border: 1px solid #ced4da;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #2a3a5a;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
         transition: all 0.2s ease;
     }
 
     /* Widget Labels */
     [data-testid="stSidebar"] label {
-        color: #1a3d7c !important;
+        color: #a3b3cc !important;
         font-weight: 600;
     }
 
@@ -96,7 +97,7 @@ st.markdown("""
     [data-testid="stSidebar"] .stRadio label,
     [data-testid="stSidebar"] .stMultiselect label,
     [data-testid="stSidebar"] .stDateInput label {
-        color: #2c3e50 !important;
+        color: #e0e7ff !important;
     }
 
     /* Widget Hover Effects */
@@ -104,85 +105,105 @@ st.markdown("""
     [data-testid="stSidebar"] .stMultiselect:hover,
     [data-testid="stSidebar"] .stRadio:hover,
     [data-testid="stSidebar"] .stDateInput:hover {
-        background-color: white;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        border-color: #adb5bd;
+        background-color: rgba(30, 38, 70, 0.9);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+        border-color: #3a4a7a;
     }
 
-    /* Metric Cards */
+    /* Metric Cards - Glassmorphism Effect */
     .metric-card {
-        background: linear-gradient(145deg, #ffffff 0%, #f1f7ff 100%);
+        background: rgba(30, 30, 60, 0.4);
+        backdrop-filter: blur(10px);
         border-radius: 12px;
         padding: 20px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        border: 1px solid #e9ecef;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        border: 1px solid rgba(100, 100, 200, 0.2);
+        transition: all 0.3s ease;
     }
 
     .metric-card h3 {
-        color: #1a3d7c !important;
+        color: #ffffff !important;
         margin-top: 0;
         font-size: 1.2rem;
     }
 
     .metric-card p {
-        color: #4a6580 !important;
+        color: #a3b3cc !important;
         margin-bottom: 0;
     }
 
     .metric-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.12);
-        border-color: #dee2e6;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        background: rgba(40, 40, 80, 0.5);
+        border-color: rgba(120, 120, 220, 0.3);
     }
 
     /* Header Container */
     .header-container {
-        background: linear-gradient(145deg, #e0ebff 0%, #d0e0ff 100%);
+        background: rgba(20, 25, 45, 0.6);
+        backdrop-filter: blur(5px);
         padding: 20px;
         border-radius: 10px;
         margin-bottom: 20px;
-        border: 1px solid #c6d4f5;
+        border: 1px solid rgba(80, 90, 150, 0.3);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .header-container h3 {
-        color: #1a3d7c !important;
+        color: #ffffff !important;
         margin-top: 0;
     }
 
     .header-container p {
-        color: #4a6580 !important;
+        color: #a3b3cc !important;
         margin-bottom: 0;
     }
 
     /* Footer Styling */
     .footer {
-        color: #4a6580 !important;
+        color: #a3b3cc !important;
     }
 
     /* Metric Values */
     .stMetric {
-        color: #1a3d7c !important;
+        color: #ffffff !important;
         font-weight: 700;
         font-size: 1.5rem !important;
+        text-shadow: 0 0 10px rgba(100, 150, 255, 0.5);
     }
 
     /* Metric Labels */
     .stMetricLabel {
-        color: #4a6580 !important;
+        color: #a3b3cc !important;
         font-size: 0.9rem !important;
         font-weight: 600;
     }
 
     /* Help Text */
     .stHelp {
-        color: #4a6580 !important;
+        color: #7987a5 !important;
+    }
+
+    /* Buttons */
+    .stButton>button {
+        background: linear-gradient(145deg, #3a3a8a, #2a2a6a) !important;
+        color: white !important;
+        border: none !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .stButton>button:hover {
+        background: linear-gradient(145deg, #4a4a9a, #3a3a7a) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.4) !important;
     }
 
     /* Responsive Adjustments */
     @media (max-width: 768px) {
         [data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #dde5f0 0%, #e9f0ff 100%) !important;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%) !important;
         }
         
         .metric-card {
@@ -192,16 +213,20 @@ st.markdown("""
 
     /* Smooth Scrollbar */
     [data-testid="stSidebar"]::-webkit-scrollbar {
-        width: 6px;
+        width: 8px;
     }
     
     [data-testid="stSidebar"]::-webkit-scrollbar-track {
-        background: #f1f3f5;
+        background: #0f1320;
     }
     
     [data-testid="stSidebar"]::-webkit-scrollbar-thumb {
-        background: #a1b4d0;
-        border-radius: 3px;
+        background: #3a4a7a;
+        border-radius: 4px;
+    }
+    
+    [data-testid="stSidebar"]::-webkit-scrollbar-thumb:hover {
+        background: #4a5a8a;
     }
 </style>
 """, unsafe_allow_html=True)
