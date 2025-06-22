@@ -11,25 +11,39 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Enhanced CSS with optimized gradients and text contrast
+# Enhanced CSS with consistent text colors
 st.markdown("""
 <style>
+    /* Global Text Colors */
+    body, .stApp, [data-testid="stAppViewContainer"], 
+    [data-testid="stSidebar"], .stMarkdown, .stMarkdown p {
+        color: #2c3e50 !important; /* Base text color */
+    }
+    
+    h1, h2, h3, h4, h5, h6,
+    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
+    .metric-card h3, .header-container h3 {
+        color: #1a3d7c !important; /* Headings color */
+    }
+    
+    .stMarkdown p, .metric-card p, .header-container p,
+    .footer, .stMetric, .stHelp {
+        color: #4a6580 !important; /* Secondary text color */
+    }
+
     /* Main Page Gradient */
     [data-testid="stAppViewContainer"] {
         background: linear-gradient(145deg, #e0ebff 0%, #f5f9ff 100%);
-        color: #2c3e50;
     }
 
     /* Sidebar Gradient */
     [data-testid="stSidebar"] {
         background: linear-gradient(160deg, #dde5f0 0%, #e9f0ff 100%) !important;
         border-right: 1px solid #ced4da;
-        color: #2c3e50 !important;
     }
 
     /* Sidebar Header */
     [data-testid="stSidebar"] .sidebar-header {
-        color: #1a3d7c !important;
         font-size: 1.25rem;
         font-weight: 600;
         padding: 1rem;
@@ -50,7 +64,6 @@ st.markdown("""
         border: 1px solid #ced4da;
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         transition: all 0.2s ease;
-        color: #2c3e50 !important;
     }
 
     /* Widget Labels */
@@ -77,23 +90,12 @@ st.markdown("""
         box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         border: 1px solid #e9ecef;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        color: #2c3e50;
-    }
-
-    .metric-card h3 {
-        color: #1a3d7c !important;
-        margin-top: 0;
     }
 
     .metric-card:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 16px rgba(0,0,0,0.12);
         border-color: #dee2e6;
-    }
-
-    /* Main Content Styling */
-    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
-        color: #1a3d7c !important;
     }
 
     /* Header Container */
@@ -107,6 +109,17 @@ st.markdown("""
 
     /* Footer Styling */
     .footer {
+        color: #4a6580 !important;
+    }
+
+    /* Metric Values */
+    .stMetric {
+        color: #1a3d7c !important;
+        font-weight: 700;
+    }
+
+    /* Help Text */
+    .stHelp {
         color: #4a6580 !important;
     }
 
@@ -141,8 +154,8 @@ st.markdown("""
 st.title("🦠 COVID-19 Testing Analytics Dashboard")
 st.markdown("""
 <div class="header-container">
-    <h3 style="color:#1a3d7c !important;">Advanced Analytics for India's Pandemic Response</h3>
-    <p style="color:#4a6580;">Visualize testing trends, compare states, and export clean datasets.</p>
+    <h3>Advanced Analytics for India's Pandemic Response</h3>
+    <p>Visualize testing trends, compare states, and export clean datasets.</p>
 </div>
 """, unsafe_allow_html=True)
 
