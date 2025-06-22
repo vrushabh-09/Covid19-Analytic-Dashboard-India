@@ -18,7 +18,7 @@ st.markdown("""
     /* Base text color for all elements */
     body, .stApp, [data-testid="stAppViewContainer"], 
     [data-testid="stSidebar"], .stMarkdown, .stMarkdown p,
-    .stMarkdown div, .stMarkdown span {
+    .stMarkdown div, .stMarkdown span, .st-emotion-cache-10trblm {
         color: #2c3e50 !important;
     }
     
@@ -26,14 +26,16 @@ st.markdown("""
     h1, h2, h3, h4, h5, h6,
     .stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
     .stMarkdown h4, .stMarkdown h5, .stMarkdown h6,
-    .metric-card h3, .header-container h3 {
+    .metric-card h3, .header-container h3,
+    .st-emotion-cache-10trblm, .st-emotion-cache-16idsys {
         color: #1a3d7c !important;
     }
     
     /* Secondary text color */
     .stMarkdown p, .metric-card p, .header-container p,
     .footer, .stHelp, .stDateInput, .stSelectbox,
-    .stRadio, .stMultiselect {
+    .stRadio, .stMultiselect, .stMetricLabel,
+    .st-emotion-cache-p5msec, .st-emotion-cache-q8sbsg {
         color: #4a6580 !important;
     }
 
@@ -49,14 +51,23 @@ st.markdown("""
         border-right: 1px solid #ced4da;
     }
 
-    /* Sidebar Title */
-    [data-testid="stSidebar"] h1 {
+    /* Sidebar Navigation */
+    [data-testid="stSidebarNav"] ul {
+        padding-left: 1rem;
+    }
+    
+    [data-testid="stSidebarNav"] a {
         color: #1a3d7c !important;
-        font-size: 1.5rem;
-        font-weight: 700;
-        padding: 0.5rem 0 1rem 0;
-        margin-bottom: 1rem;
-        border-bottom: 1px solid #c6d4f5;
+        font-weight: 600;
+        padding: 0.5rem 0;
+        display: block;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+    
+    [data-testid="stSidebarNav"] a:hover {
+        color: #0d2b5e !important;
+        transform: translateX(3px);
     }
 
     /* Widget Containers */
@@ -160,6 +171,7 @@ st.markdown("""
     .stMetricLabel {
         color: #4a6580 !important;
         font-size: 0.9rem !important;
+        font-weight: 600;
     }
 
     /* Help Text */
@@ -175,10 +187,6 @@ st.markdown("""
         
         .metric-card {
             padding: 16px;
-        }
-        
-        [data-testid="stSidebar"] h1 {
-            font-size: 1.25rem;
         }
     }
 
