@@ -11,24 +11,34 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for pro UI
+# Custom CSS for Pro UI with gradient backgrounds
 st.markdown("""
 <style>
-    /* Light & Airy Sidebar Gradient */
+    /* Full Page Gradient Background */
+    body {
+        background: linear-gradient(135deg, #f0f2f6, #dfe9f3);
+    }
+    .block-container {
+        background: linear-gradient(135deg, #f0f4f8, #f5f7fa);
+        padding: 2rem 2rem 2rem 2rem;
+        border-radius: 12px;
+    }
+
+    /* Sidebar Gradient */
     [data-testid="stSidebar"] {
-        background: linear-gradient(160deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
-        border-right: 1px solid #ced4da;
+        background: linear-gradient(180deg, #dbeafe 0%, #f0f4f8 50%, #e0e7ff 100%);
+        border-right: 1px solid #cbd5e1;
     }
 
     /* Sidebar Header */
     [data-testid="stSidebar"] .sidebar-header {
-        color: #212529;
+        color: #1e293b;
         font-size: 1.25rem;
         font-weight: 600;
         padding: 1rem;
         margin-bottom: 1rem;
-        border-bottom: 1px solid #ced4da;
-        background: rgba(255,255,255,0.7);
+        border-bottom: 1px solid #cbd5e1;
+        background: rgba(255,255,255,0.75);
     }
 
     /* Widget Containers */
@@ -40,8 +50,8 @@ st.markdown("""
         border-radius: 10px;
         padding: 12px;
         margin-bottom: 1.25rem;
-        border: 1px solid #ced4da;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #94a3b8;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         transition: all 0.2s ease;
     }
 
@@ -51,8 +61,8 @@ st.markdown("""
     [data-testid="stSidebar"] .stRadio:hover,
     [data-testid="stSidebar"] .stDateInput:hover {
         background-color: white;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        border-color: #adb5bd;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border-color: #60a5fa;
     }
 
     /* Metric Cards */
@@ -74,7 +84,7 @@ st.markdown("""
     /* Responsive Adjustments */
     @media (max-width: 768px) {
         [data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(180deg, #f0f4f8 0%, #e0e7ff 100%);
         }
         
         .metric-card {
@@ -92,7 +102,7 @@ st.markdown("""
     }
     
     [data-testid="stSidebar"]::-webkit-scrollbar-thumb {
-        background: #adb5bd;
+        background: #94a3b8;
         border-radius: 3px;
     }
 </style>
@@ -114,18 +124,14 @@ with col1:
 with col2:
     st.metric("Data Timeframe", "2020-2021", help="Jan 2020 - Dec 2021")
 with col3:
-    st.metric("Last Updated", datetime.now().strftime(
-        "%d %b %Y"), help="Auto-refreshes daily")
+    st.metric("Last Updated", datetime.now().strftime("%d %b %Y"), help="Auto-refreshes daily")
 
 # Features Grid
 st.subheader("🚀 Key Features")
 features = [
-    {"icon": "📈", "name": "Multi-State Trend Analysis",
-        "desc": "Compare testing metrics across states"},
-    {"icon": "🔍", "name": "Granular Data Explorer",
-        "desc": "Filter by date ranges and states"},
-    {"icon": "📊", "name": "Interactive Visualizations",
-        "desc": "Hover-enabled charts"},
+    {"icon": "📈", "name": "Multi-State Trend Analysis", "desc": "Compare testing metrics across states"},
+    {"icon": "🔍", "name": "Granular Data Explorer", "desc": "Filter by date ranges and states"},
+    {"icon": "📊", "name": "Interactive Visualizations", "desc": "Hover-enabled charts"},
     {"icon": "💾", "name": "Data Export", "desc": "Download CSV/JSON"}
 ]
 
