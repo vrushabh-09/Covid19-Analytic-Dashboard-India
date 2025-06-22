@@ -22,7 +22,8 @@ st.markdown("""
     
     h1, h2, h3, h4, h5, h6,
     .stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
-    .metric-card h3, .header-container h3 {
+    .metric-card h3, .header-container h3,
+    [data-testid="stSidebar"] .sidebar-title {
         color: #1a3d7c !important; /* Headings color */
     }
     
@@ -42,14 +43,12 @@ st.markdown("""
         border-right: 1px solid #ced4da;
     }
 
-    /* Sidebar Header */
-    [data-testid="stSidebar"] .sidebar-header {
-        font-size: 1.25rem;
-        font-weight: 600;
-        padding: 1rem;
+    /* Sidebar Title */
+    [data-testid="stSidebar"] .sidebar-title {
+        font-size: 1.5rem;
+        font-weight: 700;
         margin-bottom: 1rem;
-        border-bottom: 1px solid #ced4da;
-        background: rgba(255,255,255,0.7);
+        padding: 1rem 0;
     }
 
     /* Widget Containers */
@@ -92,6 +91,15 @@ st.markdown("""
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .metric-card h3 {
+        color: #1a3d7c !important;
+        margin-top: 0;
+    }
+
+    .metric-card p {
+        color: #4a6580 !important;
+    }
+
     .metric-card:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 16px rgba(0,0,0,0.12);
@@ -131,6 +139,10 @@ st.markdown("""
         
         .metric-card {
             padding: 16px;
+        }
+        
+        [data-testid="stSidebar"] .sidebar-title {
+            font-size: 1.25rem;
         }
     }
 
