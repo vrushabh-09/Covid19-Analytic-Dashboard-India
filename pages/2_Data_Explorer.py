@@ -115,13 +115,17 @@ st.markdown("""
     }
     
     .data-header h1 {
-        color: white !important;
+        color: #FFD700 !important;  /* Gold color for contrast */
         margin-bottom: 0;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        font-size: 2.5rem;
+        letter-spacing: 0.5px;
     }
     
     .data-header p {
         color: #c8f0d8 !important;
         margin-bottom: 0;
+        font-size: 1.1rem;
     }
 
     /* Buttons */
@@ -166,6 +170,10 @@ st.markdown("""
         [data-testid="stSidebar"] {
             background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%) !important;
         }
+        
+        .data-header h1 {
+            font-size: 2rem;
+        }
     }
 
     /* Smooth Scrollbar */
@@ -188,7 +196,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Custom header
+# Custom header with contrasting h1 color
 st.markdown("""
 <div class="data-header">
     <h1>🔍 Data Explorer</h1>
