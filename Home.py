@@ -14,24 +14,30 @@ st.set_page_config(
 # Enhanced CSS with consistent text colors
 st.markdown("""
 <style>
-    /* Global Text Colors */
+    /* ===== GLOBAL TEXT COLORS ===== */
+    /* Base text color for all elements */
     body, .stApp, [data-testid="stAppViewContainer"], 
-    [data-testid="stSidebar"], .stMarkdown, .stMarkdown p {
-        color: #2c3e50 !important; /* Base text color */
+    [data-testid="stSidebar"], .stMarkdown, .stMarkdown p,
+    .stMarkdown div, .stMarkdown span {
+        color: #2c3e50 !important;
     }
     
+    /* Headings color */
     h1, h2, h3, h4, h5, h6,
     .stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
-    .metric-card h3, .header-container h3,
-    [data-testid="stSidebar"] .sidebar-title {
-        color: #1a3d7c !important; /* Headings color */
+    .stMarkdown h4, .stMarkdown h5, .stMarkdown h6,
+    .metric-card h3, .header-container h3 {
+        color: #1a3d7c !important;
     }
     
+    /* Secondary text color */
     .stMarkdown p, .metric-card p, .header-container p,
-    .footer, .stMetric, .stHelp {
-        color: #4a6580 !important; /* Secondary text color */
+    .footer, .stHelp, .stDateInput, .stSelectbox,
+    .stRadio, .stMultiselect {
+        color: #4a6580 !important;
     }
 
+    /* ===== SPECIFIC ELEMENT STYLES ===== */
     /* Main Page Gradient */
     [data-testid="stAppViewContainer"] {
         background: linear-gradient(145deg, #e0ebff 0%, #f5f9ff 100%);
@@ -44,11 +50,13 @@ st.markdown("""
     }
 
     /* Sidebar Title */
-    [data-testid="stSidebar"] .sidebar-title {
+    [data-testid="stSidebar"] h1 {
+        color: #1a3d7c !important;
         font-size: 1.5rem;
         font-weight: 700;
+        padding: 0.5rem 0 1rem 0;
         margin-bottom: 1rem;
-        padding: 1rem 0;
+        border-bottom: 1px solid #c6d4f5;
     }
 
     /* Widget Containers */
@@ -69,6 +77,15 @@ st.markdown("""
     [data-testid="stSidebar"] label {
         color: #1a3d7c !important;
         font-weight: 600;
+    }
+
+    /* Widget Values */
+    [data-testid="stSidebar"] .stTextInput input,
+    [data-testid="stSidebar"] .stSelectbox div,
+    [data-testid="stSidebar"] .stRadio label,
+    [data-testid="stSidebar"] .stMultiselect label,
+    [data-testid="stSidebar"] .stDateInput label {
+        color: #2c3e50 !important;
     }
 
     /* Widget Hover Effects */
@@ -94,10 +111,12 @@ st.markdown("""
     .metric-card h3 {
         color: #1a3d7c !important;
         margin-top: 0;
+        font-size: 1.2rem;
     }
 
     .metric-card p {
         color: #4a6580 !important;
+        margin-bottom: 0;
     }
 
     .metric-card:hover {
@@ -115,6 +134,16 @@ st.markdown("""
         border: 1px solid #c6d4f5;
     }
 
+    .header-container h3 {
+        color: #1a3d7c !important;
+        margin-top: 0;
+    }
+
+    .header-container p {
+        color: #4a6580 !important;
+        margin-bottom: 0;
+    }
+
     /* Footer Styling */
     .footer {
         color: #4a6580 !important;
@@ -124,6 +153,13 @@ st.markdown("""
     .stMetric {
         color: #1a3d7c !important;
         font-weight: 700;
+        font-size: 1.5rem !important;
+    }
+
+    /* Metric Labels */
+    .stMetricLabel {
+        color: #4a6580 !important;
+        font-size: 0.9rem !important;
     }
 
     /* Help Text */
@@ -141,7 +177,7 @@ st.markdown("""
             padding: 16px;
         }
         
-        [data-testid="stSidebar"] .sidebar-title {
+        [data-testid="stSidebar"] h1 {
             font-size: 1.25rem;
         }
     }
